@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addReminder, deleteReminder, clearAll } from "../actions";
+import { addReminder, deleteReminder, clearAll } from "../redux/actions/index";
 import moment from "moment";
+
+function mapStateToProps(state) {
+  return {
+    reminders: state
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { addReminder, deleteReminder, clearAll },
+    dispatch
+  );
+}
 
 class App1 extends Component {
   constructor(props) {
@@ -92,19 +105,6 @@ class App1 extends Component {
       </div>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    reminders: state
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { addReminder, deleteReminder, clearAll },
-    dispatch
-  );
 }
 
 export default connect(

@@ -1,8 +1,7 @@
 import './App.css';
 import React from "react";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import reducer from "./reducers";
+import store from './redux/configurestore/configurestore';
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/HeaderComponent";
@@ -11,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import MainComponent from './components/MainComponent';
 
 
-const store = createStore(reducer);
 
 function App() {
   return (
