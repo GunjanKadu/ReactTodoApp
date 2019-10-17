@@ -21,6 +21,9 @@ class App1 extends Component {
   deleteReminder(id) {
     this.props.deleteReminder(id);
   }
+  editReminder(id, text) {
+    console.log(id + " " + text);
+  }
 
   renderReminders() {
     const { reminders } = this.props;
@@ -40,6 +43,12 @@ class App1 extends Component {
                 onClick={() => this.deleteReminder(reminder.id)}
               >
                 &#x2715;
+              </div>
+              <div
+                className="list-item delete-button"
+                onClick={() => this.editReminder(reminder.id, reminder.text)}
+              >
+                ࡫{" "}
               </div>
             </li>
           );

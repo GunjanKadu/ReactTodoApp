@@ -1,5 +1,6 @@
 import { ADD_REMINDER, DELETE_REMINDER, CLEAR_ALL } from "../constants";
 import { bake_cookie, read_cookie } from "sfcookies";
+
 const reminder = action => {
     let { text, dueDate } = action;
     return {
@@ -11,7 +12,7 @@ const reminder = action => {
 
 const removeById = (state = [], id) => {
     const reminders = state.filter(reminder => reminder.id !== id);
-    console.log("new reduces reminders", reminders);
+    console.log("New Reducer Reminders", reminders);
     return reminders;
 };
 

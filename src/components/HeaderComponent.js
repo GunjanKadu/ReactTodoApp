@@ -4,7 +4,7 @@ import {
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label
 } from 'reactstrap';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 class Header extends Component {
 
     constructor(props) {
@@ -43,7 +43,7 @@ class Header extends Component {
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarBrand>
-                            <NavLink to='/'><span className="fa fa-home fa-lg"></span>Home</NavLink>
+                            <Link to='/'><Button className="btn btn-info" ><span className="fa fa-home fa-lg"></span> Home</Button></Link>
                         </NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>

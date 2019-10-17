@@ -1,9 +1,18 @@
 .RenderApp {
   padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
+@import url("https://fonts.googleapis.com/css?family=Abel");
+
 .row-header {
   margin: 0px auto;
   padding: 0px auto;
@@ -24,8 +33,11 @@
   left: 0;
   bottom: 0;
   width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
+
 .jumbotron {
   padding: 70px 30px 70px 30px;
   margin: 0px auto;
@@ -40,40 +52,39 @@
 .data {
   border: #10d1eb 2px solid;
 }
+
 .card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-@import url("https://fonts.googleapis.com/css?family=Abel");
-
-html,
-body {
-  background: #fceeb5;
-  font-family: Abel, Arial, Verdana, sans-serif;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-}
-
-.card {
   width: 450px;
   height: 250px;
   background-color: #fff;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#f8f8f8),
+    to(#fff)
+  );
   background: linear-gradient(#f8f8f8, #fff);
+  -webkit-box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   overflow: hidden;
   position: relative;
   margin: 1.5rem;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
 }
 
 .card h1 {
@@ -84,15 +95,18 @@ body {
   position: absolute;
   width: 150px;
   height: 100%;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#de685e),
+    to(#ee786e)
+  );
   background: linear-gradient(#de685e, #ee786e);
+  -webkit-transition: width 0.4s;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
-}
-
-.card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
 }
 
 .card .additional .user-card {
@@ -111,8 +125,7 @@ body {
   height: 80%;
 }
 
-.card .additional .user-card .level,
-.card .additional .user-card .points {
+.card .additional .user-card .level {
   top: 15%;
   color: #fff;
   text-transform: uppercase;
@@ -125,6 +138,15 @@ body {
 }
 
 .card .additional .user-card .points {
+  top: 15%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
   top: 85%;
 }
 
@@ -145,12 +167,10 @@ body {
   margin-bottom: 0;
 }
 
-.card.green .additional .more-info h1 {
-  color: #224c36;
-}
-
 .card .additional .stats {
   font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   bottom: 1rem;
@@ -160,11 +180,9 @@ body {
   color: #fff;
 }
 
-.card.green .additional .stats {
-  color: #325c46;
-}
-
 .card .additional .stats > div {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   text-align: center;
 }
@@ -196,6 +214,7 @@ body {
   top: 0;
   right: 0;
   z-index: 1;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 1rem;
   padding-top: 0;
@@ -207,14 +226,47 @@ body {
   right: 1rem;
   font-size: 0.9em;
 }
+
+html {
+  background: #fceeb5;
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
+
+body {
+  background: #fceeb5;
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.card.green .additional .more-info h1 {
+  color: #224c36;
+}
+
+.card.green .additional .stats {
+  color: #325c46;
+}
+
 .goahead {
   display: block;
   max-width: 300px;
   margin: auto;
 }
+
 .ml-auto {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   margin: auto !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
